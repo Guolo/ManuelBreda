@@ -3,86 +3,133 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="color-scheme" content="light dark">
 <title>Manuel Breda – Architetto</title>
 <meta name="description" content="Servizi Tecnici integrati per l’edilizia. Manuel Breda, architetto a Cles (TN).">
+<meta name="theme-color" content="#f5f5f3" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#252626" media="(prefers-color-scheme: dark)">
 <link rel="icon" type="image/png" href="img/favicon-mb.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300&display=swap" rel="stylesheet">
 <style>
-/* Tema chiaro (default) */
-:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light;--bg:#f5f5f3;--fg:#4b4d4c;--soft:#8d9190;--line:#c9cccb}
-/* Tema scuro (in base al dispositivo) */
-@media(prefers-color-scheme:dark){:root{color-scheme:dark;--bg:#252626;--fg:#e4e7e6;--soft:#8f9493;--line:#454747}}
-*,*::before,*::after{box-sizing:inherit}
-html{scroll-padding-top:env(safe-area-inset-top,0px)}
-html,body{margin:0;min-height:100%}
-body{font-family:"Jost","Avenir Next","Century Gothic",Helvetica,Arial,sans-serif;font-weight:300;font-size:15px;line-height:1.7;letter-spacing:.04em;background:var(--bg);color:var(--fg);-webkit-font-smoothing:antialiased}
-a{color:inherit;text-decoration:none;background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;transition:background-size .35s ease}
-a:hover,a:focus-visible{background-size:100% 1px;outline:none}
-a:focus-visible{outline:1px solid currentColor;outline-offset:4px}
-p{margin:0}
-.v{display:flex;flex-direction:column;align-items:center;justify-content:space-between;text-align:center;min-height:100svh;padding:56px 28px 72px}
-.tag{color:var(--soft);font-size:14px;letter-spacing:.14em}
-/* Opzione 2: "Servizi Tecnici" con lo stesso colore di "Via Trento" */
-html[data-o="2"] .tag{color:var(--fg)}
-.ct{font-style:normal}
-.ct p+p{margin-top:2px}
-.s{color:var(--soft)}
-.v main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:40px;width:100%}
-.v picture{display:block}
-.v img{width:min(320px,70vw);height:auto;display:block}
-.v footer{width:100%;max-width:880px;display:grid;grid-template-columns:repeat(3,1fr);gap:28px;border-top:1px solid var(--line);padding-top:28px;font-size:14px}
-.sw{position:fixed;left:0;right:0;bottom:calc(14px + env(safe-area-inset-bottom,0px));display:flex;justify-content:center;gap:6px;font-size:12px;color:var(--soft);z-index:5}
-.sw button{font:inherit;letter-spacing:.08em;color:inherit;background:none;border:1px solid transparent;padding:2px 12px;border-radius:99px;cursor:pointer}
-html[data-o="1"] .sw [data-k="1"],html[data-o="2"] .sw [data-k="2"]{border-color:var(--soft);color:var(--fg)}
-@media(max-width:700px){
-.v footer{grid-template-columns:1fr;gap:18px;text-align:center}
+:root{
+  color-scheme:light;
+  --bg:#f5f5f3;
+  --fg:#4b4d4c;
+  --soft:#6b6f6e;
+  --line:#c9cccb;
 }
-/* Animazione di entrata a cascata: logo, sottotitolo, poi i contatti */
-@media(prefers-reduced-motion:no-preference){
-@keyframes in{from{opacity:0}to{opacity:1}}
-@keyframes up{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-.v img{animation:in 1.1s ease both}
-.tag{animation:up 1s ease .45s both}
-.v footer{animation:in 1s ease .9s both}
-.v footer>div{animation:up 1s ease both}
-.v footer>div:nth-child(1){animation-delay:1s}
-.v footer>div:nth-child(2){animation-delay:1.15s}
-.v footer>div:nth-child(3){animation-delay:1.3s}
+@media (prefers-color-scheme:dark){
+  :root{
+    color-scheme:dark;
+    --bg:#252626;
+    --fg:#e4e7e6;
+    --soft:#8f9493;
+    --line:#454747;
+  }
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;min-height:100%}
+body{
+  font-family:"Jost","Avenir Next","Century Gothic",Helvetica,Arial,sans-serif;
+  font-weight:300;
+  font-size:15px;
+  line-height:1.7;
+  letter-spacing:.04em;
+  background:var(--bg);
+  color:var(--fg);
+  -webkit-font-smoothing:antialiased;
+}
+p,h1{margin:0}
+
+a{
+  color:inherit;
+  text-decoration:none;
+  background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;
+  transition:background-size .35s ease;
+}
+a:hover,a:focus-visible{background-size:100% 1px}
+a:focus-visible{outline:1px solid currentColor;outline-offset:4px}
+
+.page{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:space-between;
+  min-height:100svh;
+  padding:calc(56px + env(safe-area-inset-top,0px)) 28px calc(72px + env(safe-area-inset-bottom,0px));
+  text-align:center;
+}
+main{
+  flex:1;
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:40px;
+}
+h1{font:inherit}
+picture{display:block}
+img{display:block;width:min(320px,70vw);height:auto}
+.tag{font-size:14px;letter-spacing:.14em}
+
+footer{
+  width:100%;
+  max-width:880px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:28px;
+  padding-top:28px;
+  border-top:1px solid var(--line);
+  font-size:14px;
+}
+footer p+p{margin-top:2px}
+.piva{color:var(--soft)}
+
+@media (max-width:700px){
+  footer{grid-template-columns:1fr;gap:18px}
+}
+
+@media (prefers-reduced-motion:no-preference){
+  @keyframes fade{from{opacity:0}to{opacity:1}}
+  @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  img{animation:fade 1.1s ease both}
+  .tag{animation:rise 1s ease .45s both}
+  footer{animation:fade 1s ease .9s both}
+  footer>div{animation:rise 1s ease both}
+  footer>div:nth-child(1){animation-delay:1s}
+  footer>div:nth-child(2){animation-delay:1.15s}
+  footer>div:nth-child(3){animation-delay:1.3s}
 }
 </style>
 </head>
 <body>
-
-<div class="v">
+<div class="page">
   <main>
-    <picture>
-      <source srcset="img/logo-mb-chiaro.png" media="(prefers-color-scheme: dark)">
-      <img src="img/logo-mb-completo.png" alt="Manuel Breda – Architetto" width="756" height="435">
-    </picture>
+    <h1>
+      <picture>
+        <source srcset="img/logo-mb-chiaro.png" media="(prefers-color-scheme: dark)">
+        <img src="img/logo-mb-completo.png" alt="Manuel Breda – Architetto" width="756" height="435">
+      </picture>
+    </h1>
     <p class="tag">Servizi Tecnici integrati per l’edilizia</p>
   </main>
-  <footer class="ct">
-    <div><p>Via Trento, 130</p><p>Cles (TN)</p><p class="s">P. IVA 02673200222</p></div>
-    <div><p><a href="tel:+393383325925">+39 338 332 5925</a></p></div>
-    <div><p><a href="mailto:breda.architetto@gmail.com">breda.architetto@gmail.com</a></p><p><a href="mailto:manuel.breda@archiworldpec.it">manuel.breda@archiworldpec.it</a></p></div>
+  <footer>
+    <div>
+      <p>Via Trento, 130</p>
+      <p>Cles (TN)</p>
+      <p class="piva">P. IVA 02673200222</p>
+    </div>
+    <div>
+      <p><a href="tel:+393383325925">+39 338 332 5925</a></p>
+    </div>
+    <div>
+      <p><a href="mailto:breda.architetto@gmail.com">breda.architetto@gmail.com</a></p>
+      <p><a href="mailto:manuel.breda@archiworldpec.it">manuel.breda@archiworldpec.it</a></p>
+    </div>
   </footer>
 </div>
-
-<!-- Anteprima opzioni 1/2 (da rimuovere, insieme allo script, a scelta fatta) -->
-<nav class="sw" aria-label="Anteprima opzioni (da rimuovere)">
-  <button data-k="1">1</button><button data-k="2">2</button>
-</nav>
-
-<script>
-(function(){
-  var d=document.documentElement;
-  function set(){var h=(location.hash||"").slice(1);d.dataset.o=/^[12]$/.test(h)?h:"1"}
-  set();addEventListener("hashchange",set);
-  document.querySelectorAll(".sw button").forEach(function(b){b.onclick=function(){location.hash=b.dataset.k}});
-})();
-</script>
 </body>
 </html>
